@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа - FoodMart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .checkout-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .checkout-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+        }
+        
+        .checkout-form {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        .form-section h3 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .order-summary {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .summary-item-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .summary-item-image {
+            font-size: 40px;
+        }
+        
+        .summary-item-details {
+            flex: 1;
+        }
+        
+        .summary-item-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .summary-item-quantity {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .place-order-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .place-order-btn:hover {
+            background: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="alertContainer"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <h1>🛒 FoodMart</h1>
+                    </a>
+                </div>
+                
+                <div class="header-actions">
+                    <a href="cart.html" class="icon-btn">
+                        <img src="cart-icon.png" alt="Cart" class="header-icon">
+                        <span>Вернуться в корзину</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Checkout Content -->
+    <div class="checkout-container">
+        <h1 style="margin-bottom: 30px;">Оформление заказа</h1>
+        
+        <div class="checkout-content">
+            <div class="checkout-form">
+                <form id="checkoutForm">
+                    <!-- Delivery Address -->
+                    <div class="form-section">
+                        <h3>📍 Адрес доставки</h3>
+                        <div class="form-group">
+                            <label for="city">Город</label>
+                            <input type="text" id="city" name="city" required placeholder="Алматы">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Улица и дом</label>
+                            <input type="text" id="address" name="address" required placeholder="ул. Абая, д. 123">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="apartment">Квартира</label>
+                                <input type="text" id="apartment" name="apartment" placeholder="45">
+                            </div>
+                            <div class="form-group">
+                                <label for="entrance">Подъезд</label>
+                                <input type="text" id="entrance" name="entrance" placeholder="3">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="floor">Этаж</label>
+                                <input type="text" id="floor" name="floor" placeholder="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="intercom">Домофон</label>
+                                <input type="text" id="intercom" name="intercom" placeholder="45">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Комментарий к заказу</label>
+                            <textarea id="comment" name="comment" rows="3" style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; font-family: inherit; resize: vertical;" placeholder="Дополнительная информация для курьера"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Method -->
+                    <div class="form-section">
+                        <h3>💳 Оплата картой</h3>
+                        <div class="form-group">
+                            <label for="cardNumber">Номер карты</label>
+                            <input type="text" id="cardNumber" name="cardNumber" required placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardExpiry">Срок действия</label>
+                                <input type="text" id="cardExpiry" name="cardExpiry" required placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="cardCVV">CVV</label>
+                                <input type="text" id="cardCVV" name="cardCVV" required placeholder="123" maxlength="3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardHolder">Имя держателя карты</label>
+                            <input type="text" id="cardHolder" name="cardHolder" required placeholder="IVAN IVANOV">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="place-order-btn">
+                        Оформить заказ
+                    </button>
+                </form>
+            </div>
+            
+            <div class="order-summary">
+                <h2 style="margin-bottom: 20px;">Ваш заказ</h2>
+                <div id="orderItems"></div>
+                <div class="summary-total">
+                    <span>Итого:</span>
+                    <span id="totalPrice">0 ₸</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="checkout.js"></script>
+</body>
+</html>

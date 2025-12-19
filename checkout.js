@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     displayOrderSummary();
     setupForm();
 });
+function renderImage(image, alt = '') {
+    const isFile = typeof image === 'string' && /\.(png|jpe?g|webp|svg)$/i.test(image);
+    return isFile
+        ? `<img src="${image}" alt="${alt}" style="width:60px;height:60px;object-fit:cover;border-radius:10px;">`
+        : `<span style="font-size:40px;">${image}</span>`;
+}
 
 function displayOrderSummary() {
     const orderItems = document.getElementById('orderItems');
@@ -34,7 +40,7 @@ function displayOrderSummary() {
     orderItems.innerHTML = cart.map(item => `
         <div class="summary-item">
             <div class="summary-item-info">
-                <div class="summary-item-image">${item.image}</div>
+                <div class="item-image">${renderImage(item.image, item.name)}</div>
                 <div class="summary-item-details">
                     <div class="summary-item-name">${item.name}</div>
                     <div class="summary-item-quantity">${item.quantity} шт × ${item.price} ₸</div>

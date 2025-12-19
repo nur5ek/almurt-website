@@ -128,21 +128,34 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html" style="text-decoration: none; color: inherit;">
-                        <h1>🛒 FoodMart</h1>
+                    <a href="index.html">
+                        <img src="img/almurt.png" alt="Almurt Logo" height="60">
                     </a>
                 </div>
-                
+
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Поиск продуктов...">
+                    <button id="searchBtn" type="button">
+                        <img src="img/search-interface-symbol.png" alt="Search" class="header-icon">
+                    </button>
+                </div>
+
                 <div class="header-actions">
                     <a href="cart.html" class="icon-btn">
-                        <img src="cart-icon.png" alt="Cart" class="header-icon">
-                        <span>Вернуться в корзину</span>
+                        <img src="img/shopping-cart.png" alt="Cart" class="header-icon">
+                        <span id="cartCount" class="badge">0</span>
                     </a>
+
+                    <button id="profileBtn" class="icon-btn" type="button">
+                        <img src="img/user.png" alt="Profile" class="header-icon">
+                        <span>Профиль</span>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
-    
+
+
     <!-- Checkout Content -->
     <div class="checkout-container">
         <h1 style="margin-bottom: 30px;">Оформление заказа</h1>

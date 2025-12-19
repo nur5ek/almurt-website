@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Заказ оформлен - FoodMart</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <style>
         .success-container {
             max-width: 800px;
             margin: 60px auto;
             padding: 0 20px;
+        }
+        .item-image img {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
         }
         
         .success-box {
@@ -154,7 +162,7 @@
             <div class="header-content">
                 <div class="logo">
                     <a href="index.html" style="text-decoration: none; color: inherit;">
-                        <h1>🛒 FoodMart</h1>
+                        <img src="img/almurt.png" alt="Almurt Logo" height="60">
                     </a>
                 </div>
             </div>
@@ -210,7 +218,8 @@
                 ${order.items.map(item => `
                     <div class="order-item">
                         <div class="item-info">
-                            <div class="item-image">${item.image}</div>
+                            <div class="item-image">${renderImage(item.image, item.name)}</div>
+
                             <div>
                                 <div style="font-weight: 500;">${item.name}</div>
                                 <div style="color: #666; font-size: 14px;">${item.quantity} шт × ${item.price} ₸</div>

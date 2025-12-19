@@ -82,7 +82,8 @@ function displayCart() {
 function createCartItem(item, index) {
     return `
         <div class="cart-item" data-index="${index}">
-            <div class="item-image">${item.image}</div>
+            <div class="item-image">${renderImage(item.image, item.name)}</div>
+
             <div class="item-details">
                 <h3>${item.name}</h3>
                 <div class="item-price">${item.price} ₸</div>
@@ -159,6 +160,13 @@ function removeItem(index) {
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
+function renderImage(image, alt = '') {
+    const isFile = typeof image === 'string' && /\.(png|jpe?g|webp|svg)$/i.test(image);
+    return isFile
+        ? `<img src="${image}" alt="${alt}" style="width:60px;height:60px;object-fit:cover;border-radius:10px;">`
+        : `<span style="font-size:40px;">${image}</span>`;
+}
+
 
 function goToCheckout() {
     const user = JSON.parse(localStorage.getItem('user'));

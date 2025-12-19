@@ -1,26 +1,31 @@
 // Products Database
 const products = [
-    { id: 1, name: 'Яблоки Гренни Смит', price: 890, category: 'fruits', image: '🍏', discount: 15, popular: true },
-    { id: 2, name: 'Молоко Простоквашино 3.2%', price: 650, category: 'dairy', image: '🥛', discount: 0, popular: true },
-    { id: 3, name: 'Куриное филе охлажденное', price: 1890, category: 'meat', image: '🍗', discount: 20, popular: false },
-    { id: 4, name: 'Хлеб белый нарезной', price: 280, category: 'bakery', image: '🍞', discount: 0, popular: true },
-    { id: 5, name: 'Томаты черри 250г', price: 1200, category: 'fruits', image: '🍅', discount: 10, popular: false },
-    { id: 6, name: 'Кока-Кола 2л', price: 780, category: 'beverages', image: '🥤', discount: 0, popular: true },
-    { id: 7, name: 'Чипсы Lays сметана', price: 450, category: 'snacks', image: '🥔', discount: 25, popular: true },
-    { id: 8, name: 'Сыр Голландский 45%', price: 2300, category: 'dairy', image: '🧀', discount: 0, popular: false },
-    { id: 9, name: 'Бананы 1кг', price: 750, category: 'fruits', image: '🍌', discount: 5, popular: true },
-    { id: 10, name: 'Йогурт Danone клубника', price: 320, category: 'dairy', image: '🥛', discount: 15, popular: false },
-    { id: 11, name: 'Говядина мраморная', price: 3500, category: 'meat', image: '🥩', discount: 0, popular: false },
-    { id: 12, name: 'Круассан французский', price: 380, category: 'bakery', image: '🥐', discount: 0, popular: false },
-    { id: 13, name: 'Картофель 2кг', price: 450, category: 'fruits', image: '🥔', discount: 0, popular: true },
-    { id: 14, name: 'Вода минеральная 1.5л', price: 180, category: 'beverages', image: '💧', discount: 0, popular: true },
-    { id: 15, name: 'Шоколад Milka', price: 620, category: 'snacks', image: '🍫', discount: 30, popular: true },
-    { id: 16, name: 'Апельсины 1кг', price: 980, category: 'fruits', image: '🍊', discount: 0, popular: false },
-    { id: 17, name: 'Кефир 1л', price: 420, category: 'dairy', image: '🥛', discount: 0, popular: false },
-    { id: 18, name: 'Свинина ошеек', price: 2100, category: 'meat', image: '🥓', discount: 15, popular: false },
-    { id: 19, name: 'Батон нарезной', price: 200, category: 'bakery', image: '🥖', discount: 0, popular: true },
-    { id: 20, name: 'Сок яблочный 1л', price: 550, category: 'beverages', image: '🧃', discount: 0, popular: false }
+    { id: 1, name: 'Яблоки Гренни Смит', price: 890, category: 'fruits', image: 'img/products/apples.webp', discount: 15, popular: true },
+
+    { id: 2, name: 'Молоко Простоквашино 3.2%', price: 650, category: 'dairy', image: 'img/products/milk.jpg', discount: 0, popular: true },
+
+    { id: 3, name: 'Куриное филе охлажденное', price: 1890, category: 'meat', image: 'img/products/chicken.webp', discount: 20, popular: false },
+
+    { id: 4, name: 'Хлеб белый нарезной', price: 280, category: 'bakery', image: 'img/products/bread.webp', discount: 0, popular: true },
+    { id: 5, name: 'Томаты черри 250г', price: 1200, category: 'fruits', image: 'img/products/томаты.webp', discount: 10, popular: false },
+    { id: 6, name: 'Кока-Кола 2л', price: 780, category: 'beverages', image: 'img/products/кола.webp', discount: 0, popular: true },
+    { id: 7, name: 'Чипсы Lays сметана', price: 450, category: 'snacks', image: 'img/products/лейс.webp', discount: 25, popular: true },
+    { id: 8, name: 'Сыр Голландский 45%', price: 2300, category: 'dairy', image: 'img/products/сыр.webp', discount: 0, popular: false },
+    { id: 9, name: 'Бананы 1кг', price: 750, category: 'fruits', image: 'img/products/ Бананы.webp', discount: 5, popular: true },
+
+    { id: 10, name: 'Йогурт Danone клубника', price: 320, category: 'dairy', image: 'img/products/yogurt.webp', discount: 15, popular: false },
+
+    { id: 11, name: 'Говядина мраморная', price: 3500, category: 'meat', image: 'img/products/beef.webp', discount: 0, popular: false },
+
+    { id: 12, name: 'Круассан французский', price: 380, category: 'bakery', image: 'img/products/Круассан.webp', discount: 0, popular: false },
+    { id: 13, name: 'Картофель 2кг', price: 450, category: 'fruits', image: 'img/products/Картофель.webp', discount: 0, popular: true },
+
+    { id: 14, name: 'Вода минеральная 1.5л', price: 180, category: 'beverages', image: 'img/products/water.webp', discount: 0, popular: true },
+
+
+    { id: 20, name: 'Сок яблочный 1л', price: 550, category: 'beverages', image: 'img/products/apple-juice.webp', discount: 0, popular: false }
 ];
+
 
 // Global State
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -107,28 +112,30 @@ function displayProducts(category) {
 
 // Create Product Card HTML
 function createProductCard(product) {
-    const discountPrice = product.discount > 0 
+    const discountPrice = product.discount > 0
         ? Math.round(product.price * (1 - product.discount / 100))
         : product.price;
-    
+
+    const imageHtml = (typeof product.image === 'string' && product.image.startsWith('img/'))
+        ? `<img src="${product.image}" alt="${product.name}" loading="lazy">`
+        : `${product.image}`;
+
     return `
-        <div class="product-card">
-            <div class="product-image">${product.image}</div>
-            <div class="product-info">
-                <h3>${product.name}</h3>
-                <div class="product-price">
-                    <span class="price-current">${discountPrice} ₸</span>
-                    ${product.discount > 0 ? `
-                        <span class="price-old">${product.price} ₸</span>
-                        <span class="discount-badge">-${product.discount}%</span>
-                    ` : ''}
-                </div>
-                <button class="add-to-cart-btn" data-id="${product.id}">
-                    В корзину
-                </button>
-            </div>
+    <div class="product-card">
+      <div class="product-image">${renderImage(product.image, product.name)}</div>
+      <div class="product-info">
+        <h3>${product.name}</h3>
+        <div class="product-price">
+          <span class="price-current">${discountPrice} ₸</span>
+          ${product.discount > 0 ? `
+            <span class="price-old">${product.price} ₸</span>
+            <span class="discount-badge">-${product.discount}%</span>
+          ` : ''}
         </div>
-    `;
+        <button class="add-to-cart-btn" data-id="${product.id}">В корзину</button>
+      </div>
+    </div>
+  `;
 }
 
 // Add to Cart
@@ -194,6 +201,13 @@ function checkAuth() {
         }
     }
 }
+function renderImage(image, alt = '') {
+    const isFile = typeof image === 'string' && /\.(png|jpe?g|webp|svg)$/i.test(image);
+    return isFile
+        ? `<img src="${image}" alt="${alt}" class="product-img">`
+        : `<span class="product-emoji">${image}</span>`;
+}
+
 
 // Export functions for use in other files
 window.showAlert = showAlert;

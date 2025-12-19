@@ -7,157 +7,188 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Alert Container -->
-    <div id="alertContainer"></div>
+<div id="alertContainer"></div>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                  <h1><img src="img/logo.png" alt="logo" height="50" width="70">Almurt</h1>
-                </div>
-                
-                <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="Поиск продуктов...">
-                    <button id="searchBtn">
-                        <img src="img/search-interface-symbol.png" alt="Search" class="header-icon">
-                    </button>
-                </div>
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/almurt.png" alt="Almurt Logo" height="60">
+                </a>
+            </div>
 
-                <div class="header-actions">
-                    <a href="cart.html" class="icon-btn">
-                        <img src="img/shopping-cart.png" alt="Cart" class="header-icon">
-                        <span id="cartCount" class="badge">0</span>
-                    </a>
-                    <button id="profileBtn" class="icon-btn">
-                        <img src="img/user.png" alt="Profile" class="header-icon">
-                        <span>Профиль</span>
-                    </button>
-                </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Поиск продуктов...">
+                <button id="searchBtn">
+                    <img src="img/search-interface-symbol.png" alt="Search" class="header-icon">
+                </button>
+            </div>
+
+            <div class="header-actions">
+                <a href="cart.html" class="icon-btn">
+                    <img src="img/shopping-cart.png" alt="Cart" class="header-icon">
+                    <span id="cartCount" class="badge">0</span>
+                </a>
+                <button id="profileBtn" class="icon-btn">
+                    <img src="img/user.png" alt="Profile" class="header-icon">
+                    <span>Профиль</span>
+                </button>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Welcome Banner -->
-            <section class="welcome-banner">
-                <div class="banner-content">
-                    <div class="banner-text">
-                        <h1>Добро пожаловать в FoodMart!</h1>
-                        <p>Свежие продукты с доставкой на дом</p>
-                        <button class="banner-btn" onclick="scrollToCategories()">Начать покупки</button>
-                    </div>
-                    <div class="banner-image">
-                        <!-- Здесь можно добавить ваше изображение -->
-                        <div class="banner-placeholder">
-                            <p>🖼️ Место для вашего постера</p>
-                            <small>Добавьте изображение: &lt;img src="your-image.jpg" alt="Banner"&gt;</small>
-                        </div>
-                    </div>
+<main class="main-content">
+    <div class="container">
+        <section class="welcome-banner">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h1>Добро пожаловать в FoodMart!</h1>
+                    <p>Свежие продукты с доставкой на дом</p>
+                    <button class="banner-btn" onclick="scrollToCategories()">Начать покупки</button>
                 </div>
-            </section>
-
-            <!-- Categories Section -->
-            <section class="categories-section" id="categoriesSection">
-                <h2 class="section-title">Выберите категорию</h2>
-                <div class="categories-grid">
-                    <div class="category-card" onclick="goToCategory('discount')">
-                        <div class="category-icon">💰</div>
-                        <h3>Sale!</h3>
-                        <p>Товары со скидкой</p>
-                        <div class="category-arrow">→</div>
-                    </div>
-
-                    <div class="category-card" onclick="goToCategory('fruits')">
-                        <div class="category-icon">🍎</div>
-                        <h3>Овощи и фрукты</h3>
-                        <p>Свежие и сочные</p>
-                        <div class="category-arrow">→</div>
-                    </div>
-
-                    <div class="category-card" onclick="goToCategory('dairy')">
-                        <div class="category-icon">🥛</div>
-                        <h3>Молочные продукты</h3>
-                        <p>Натуральное качество</p>
-                        <div class="category-arrow">→</div>
-                    </div>
-
-                    <div class="category-card" onclick="goToCategory('meat')">
-                        <div class="category-icon">🍖</div>
-                        <h3>Мясо и птица</h3>
-                        <p>Охлажденное мясо</p>
-                        <div class="category-arrow">→</div>
-                    </div>
-
-                    <div class="category-card" onclick="goToCategory('bakery')">
-                        <div class="category-icon">🍞</div>
-                        <h3>Хлеб и выпечка</h3>
-                        <p>Свежая выпечка</p>
-                        <div class="category-arrow">→</div>
-                    </div>
-
-                    <div class="category-card" onclick="goToCategory('beverages')">
-                        <div class="category-icon">🥤</div>
-                        <h3>Напитки</h3>
-                        <p>На любой вкус</p>
-                        <div class="category-arrow">→</div>
-                    </div>
+                <div class="banner-image">
+                    <img src="img/Nurbek.png" alt="Nurbek's choice" class="banner-poster">
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Products will be shown after category selection -->
-            <section class="catalog-section" id="catalogSection" style="display: none;">
-                <div class="content-grid">
-                    <!-- Sidebar Categories -->
-                    <aside class="sidebar">
-                        <h3>Категории</h3>
-                        <nav class="categories">
-                            <button class="category-btn" data-category="popular">
-                                🔥 Популярные товары
-                            </button>
-                            <button class="category-btn" data-category="discount">
-                                💰 Товары со скидкой
-                            </button>
-                            <button class="category-btn" data-category="fruits">
-                                🍎 Овощи и фрукты
-                            </button>
-                            <button class="category-btn" data-category="dairy">
-                                🥛 Молочные продукты
-                            </button>
-                            <button class="category-btn" data-category="meat">
-                                🍖 Мясо и птица
-                            </button>
-                            <button class="category-btn" data-category="bakery">
-                                🍞 Хлеб и выпечка
-                            </button>
-                            <button class="category-btn" data-category="beverages">
-                                🥤 Напитки
-                            </button>
-                            <button class="category-btn" data-category="snacks">
-                                🍿 Снеки
-                            </button>
-                        </nav>
-                    </aside>
-
-                    <!-- Products Catalog -->
-                    <section class="catalog">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                            <h2 id="catalogTitle">Каталог товаров</h2>
-                            <button class="back-to-home-btn" onclick="backToHome()">← Назад к категориям</button>
-                        </div>
-                        <div id="productsGrid" class="products-grid">
-                            <!-- Products will be loaded here by JavaScript -->
-                        </div>
-                    </section>
+        <section class="categories-section" id="categoriesSection">
+            <h2 class="section-title">Выберите категорию</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="goToCategory('discount')">
+                    <div class="category-icon">
+                        <img src="img/225443-skidki.webp" alt="Скидки" width="60" height="60">
+                    </div>
+                    <h3>Sale!</h3>
+                    <p>Товары со скидкой</p>
+                    <div class="category-arrow">→</div>
                 </div>
-            </section>
-        </div>
-    </main>
 
-    <script src="script.js"></script>
-    <script src="search.js"></script>
+                <div class="category-card" onclick="goToCategory('fruits')">
+                    <div class="category-icon">
+                        <img src="img/225164-svezhie_ovoshi_i_frukty-1.webp" alt="Овощи и фрукты" width="60" height="60">
+                    </div>
+                    <h3>Овощи и фрукты</h3>
+                    <p>Свежие и сочные</p>
+                    <div class="category-arrow">→</div>
+                </div>
+
+                <div class="category-card" onclick="goToCategory('dairy')">
+                    <div class="category-icon">
+                        <img src="img/225161-moloko_syr_maslo_yaica.webp" alt="Молочные продукты" width="60" height="60">
+                    </div>
+                    <h3>Молочные продукты</h3>
+                    <p>Натуральное качество</p>
+                    <div class="category-arrow">→</div>
+                </div>
+
+                <div class="category-card" onclick="goToCategory('meat')">
+                    <div class="category-icon">
+                        <img src="img/225162-myaso_ptica.webp" alt="Мясо и птица" width="60" height="60">
+                    </div>
+                    <h3>Мясо и птица</h3>
+                    <p>Охлажденное мясо</p>
+                    <div class="category-arrow">→</div>
+                </div>
+
+                <div class="category-card" onclick="goToCategory('bakery')">
+                    <div class="category-icon">
+                        <img src="img/225165-hleb_vypechka.webp" alt="Хлеб и выпечка" width="60" height="60">
+                    </div>
+                    <h3>Хлеб и выпечка</h3>
+                    <p>Свежая выпечка</p>
+                    <div class="category-arrow">→</div>
+                </div>
+
+                <div class="category-card" onclick="goToCategory('beverages')">
+                    <div class="category-icon">
+                        <img src="img/14-napitki.webp" alt="Напитки" width="60" height="60">
+                    </div>
+                    <h3>Напитки</h3>
+                    <p>На любой вкус</p>
+                    <div class="category-arrow">→</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-section" id="catalogSection" style="display: none;">
+            <div class="content-grid">
+                <aside class="sidebar">
+                    <h3>Категории</h3>
+                    <nav class="categories categories--with-icons">
+                        <button class="category-btn" data-category="popular">
+                            <span class="cat-icon">🔥</span>
+                            <span class="cat-text">Популярные товары</span>
+                        </button>
+
+                        <button class="category-btn" data-category="discount">
+                            <span class="cat-icon">
+                                <img src="img/225443-skidki.webp" alt="Скидки" width="22" height="22">
+                            </span>
+                            <span class="cat-text">Товары со скидкой</span>
+                        </button>
+
+                        <button class="category-btn" data-category="fruits">
+                            <span class="cat-icon">
+                                <img src="img/225164-svezhie_ovoshi_i_frukty-1.webp" alt="Овощи и фрукты" width="22" height="22">
+                            </span>
+                            <span class="cat-text">Овощи и фрукты</span>
+                        </button>
+
+                        <button class="category-btn" data-category="dairy">
+                            <span class="cat-icon">
+                                <img src="img/225161-moloko_syr_maslo_yaica.webp" alt="Молочные продукты" width="22" height="22">
+                            </span>
+                            <span class="cat-text">Молочные продукты</span>
+                        </button>
+
+                        <button class="category-btn" data-category="meat">
+                            <span class="cat-icon">
+                                <img src="img/225162-myaso_ptica.webp" alt="Мясо и птица" width="22" height="22">
+                            </span>
+                            <span class="cat-text">Мясо и птица</span>
+                        </button>
+
+                        <button class="category-btn" data-category="bakery">
+                            <span class="cat-icon">
+                                <img src="img/225165-hleb_vypechka.webp" alt="Хлеб и выпечка" width="22" height="22">
+                            </span>
+                            <span class="cat-text">Хлеб и выпечка</span>
+                        </button>
+
+                        <button class="category-btn" data-category="beverages">
+                            <span class="cat-icon">
+                                <img src="img/14-napitki.webp" alt="Напитки" width="22" height="22">
+                            </span>
+                            <span class="cat-text">Напитки</span>
+                        </button>
+
+                        <button class="category-btn" data-category="snacks">
+                            <span class="cat-icon">
+                                <img src="img/icon_png__225602-orehi_i_sneki.svg" alt="Снеки" width="22" height="22">
+                            </span>
+                            <span class="cat-text">Снеки</span>
+                        </button>
+                    </nav>
+
+                </aside>
+
+                <section class="catalog">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2 id="catalogTitle">Каталог товаров</h2>
+                        <button class="back-to-home-btn" onclick="backToHome()">← Назад к категориям</button>
+                    </div>
+                    <div id="productsGrid" class="products-grid">
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+</main>
+
+<script src="script.js"></script>
+<script src="search.js"></script>
 </body>
 </html>

@@ -72,7 +72,11 @@ function createOrderCard(order) {
                 ${order.items.map(item => `
                     <div class="order-item">
                         <div class="order-item-info">
-                            <div class="order-item-image">${item.image}</div>
+                        
+                        
+                            <div class="item-image">${renderImage(item.image, item.name)}</div>
+                            
+                            
                             <div>
                                 <div style="font-weight: 500;">${item.name}</div>
                                 <div style="color: #666; font-size: 14px;">${item.quantity} шт × ${item.price} ₸</div>
@@ -99,6 +103,12 @@ function createOrderCard(order) {
     `;
 }
 
+function renderImage(image, alt = '') {
+    const isFile = typeof image === 'string' && /\.(png|jpe?g|webp|svg)$/i.test(image);
+    return isFile
+        ? `<img src="${image}" alt="${alt}" style="width:60px;height:60px;object-fit:cover;border-radius:10px;">`
+        : `<span style="font-size:40px;">${image}</span>`;
+}
 function logout() {
     if (confirm('Вы уверены, что хотите выйти из аккаунта?')) {
         localStorage.removeItem('user');

@@ -11,7 +11,13 @@
             margin: 40px auto;
             padding: 0 20px;
         }
-        
+        .item-image img {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
         .profile-header {
             background: white;
             border-radius: 16px;
@@ -202,22 +208,34 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html" style="text-decoration: none; color: inherit;">
-                        <h1>🛒 FoodMart</h1>
+                    <a href="index.html">
+                        <img src="img/almurt.png" alt="Almurt Logo" height="60">
                     </a>
                 </div>
-                
+
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Поиск продуктов...">
+                    <button id="searchBtn" type="button">
+                        <img src="img/search-interface-symbol.png" alt="Search" class="header-icon">
+                    </button>
+                </div>
+
                 <div class="header-actions">
-                    <a href="index.html" class="icon-btn">← На главную</a>
                     <a href="cart.html" class="icon-btn">
-                        <img src="cart-icon.png" alt="Cart" class="header-icon">
-                        <span>Корзина</span>
+                        <img src="img/shopping-cart.png" alt="Cart" class="header-icon">
+                        <span id="cartCount" class="badge">0</span>
                     </a>
+
+                    <button id="profileBtn" class="icon-btn" type="button">
+                        <img src="img/user.png" alt="Profile" class="header-icon">
+                        <span>Профиль</span>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
-    
+
+
     <!-- Profile Content -->
     <div class="profile-container">
         <div class="profile-header">
@@ -243,5 +261,6 @@
     </div>
     
     <script src="profile.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,29 +1,29 @@
 // Products Database
 const products = [
-    { id: 1, name: 'Яблоки Гренни Смит', price: 890, category: 'fruits', image: 'img/products/apples.webp', discount: 15, popular: true },
+    { id: 1, name: 'Яблоки Гренни Смит', price: 890, category: 'fruits', image: 'img/products/apples.jpg', discount: 15, popular: true },
 
     { id: 2, name: 'Молоко Простоквашино 3.2%', price: 650, category: 'dairy', image: 'img/products/milk.jpg', discount: 0, popular: true },
 
-    { id: 3, name: 'Куриное филе охлажденное', price: 1890, category: 'meat', image: 'img/products/chicken.webp', discount: 20, popular: false },
+    { id: 3, name: 'Куриное филе охлажденное', price: 1890, category: 'meat', image: 'img/products/chicken.jpg', discount: 20, popular: false, nurbekChoice: true },
 
-    { id: 4, name: 'Хлеб белый нарезной', price: 280, category: 'bakery', image: 'img/products/bread.webp', discount: 0, popular: true },
-    { id: 5, name: 'Томаты черри 250г', price: 1200, category: 'fruits', image: 'img/products/томаты.webp', discount: 10, popular: false },
-    { id: 6, name: 'Кока-Кола 2л', price: 780, category: 'beverages', image: 'img/products/кола.webp', discount: 0, popular: true },
-    { id: 7, name: 'Чипсы Lays сметана', price: 450, category: 'snacks', image: 'img/products/лейс.webp', discount: 25, popular: true },
-    { id: 8, name: 'Сыр Голландский 45%', price: 2300, category: 'dairy', image: 'img/products/сыр.webp', discount: 0, popular: false },
-    { id: 9, name: 'Бананы 1кг', price: 750, category: 'fruits', image: 'img/products/ Бананы.webp', discount: 5, popular: true },
+    { id: 4, name: 'Хлеб белый нарезной', price: 280, category: 'bakery', image: 'img/products/bread.jpg', discount: 0, popular: true },
+    { id: 5, name: 'Томаты черри 250г', price: 1200, category: 'fruits', image: 'img/products/tomatoes.jpg', discount: 10, popular: false },
+    { id: 6, name: 'Кока-Кола 2л', price: 780, category: 'beverages', image: 'img/products/cocacola.jpg', discount: 0, popular: true },
+    { id: 7, name: 'Чипсы Lays сметана', price: 450, category: 'snacks', image: 'img/products/lays.jpg', discount: 25, popular: true, nurbekChoice: true },
+    { id: 8, name: 'Сыр Голландский 45%', price: 2300, category: 'dairy', image: 'img/products/cheese.jpg', discount: 0, popular: false, nurbekChoice: true },
+    { id: 9, name: 'Бананы 1кг', price: 750, category: 'fruits', image: 'img/products/bananas.jpg', discount: 5, popular: true, nurbekChoice: true },
 
-    { id: 10, name: 'Йогурт Danone клубника', price: 320, category: 'dairy', image: 'img/products/yogurt.webp', discount: 15, popular: false },
+    { id: 10, name: 'Йогурт Danone клубника', price: 320, category: 'dairy', image: 'img/products/yogurt.jpg', discount: 15, popular: false, nurbekChoice: true },
 
-    { id: 11, name: 'Говядина мраморная', price: 3500, category: 'meat', image: 'img/products/beef.webp', discount: 0, popular: false },
+    { id: 11, name: 'Говядина мраморная', price: 3500, category: 'meat', image: 'img/products/beef.jpg', discount: 0, popular: false },
 
-    { id: 12, name: 'Круассан французский', price: 380, category: 'bakery', image: 'img/products/Круассан.webp', discount: 0, popular: false },
-    { id: 13, name: 'Картофель 2кг', price: 450, category: 'fruits', image: 'img/products/Картофель.webp', discount: 0, popular: true },
+    { id: 12, name: 'Круассан французский', price: 380, category: 'bakery', image: 'img/products/Croissant.jpg', discount: 0, popular: false, nurbekChoice: true },
+    { id: 13, name: 'Картофель 2кг', price: 450, category: 'fruits', image: 'img/products/potatoes.jpg', discount: 0, popular: true },
 
-    { id: 14, name: 'Вода минеральная 1.5л', price: 180, category: 'beverages', image: 'img/products/water.webp', discount: 0, popular: true },
+    { id: 14, name: 'Вода минеральная 1.5л', price: 180, category: 'beverages', image: 'img/products/water.jpg', discount: 0, popular: true, nurbekChoice: true },
 
 
-    { id: 20, name: 'Сок яблочный 1л', price: 550, category: 'beverages', image: 'img/products/apple-juice.webp', discount: 0, popular: false }
+    { id: 20, name: 'Сок яблочный 1л', price: 550, category: 'beverages', image: 'img/products/apple-juice.jpg', discount: 0, popular: false }
 ];
 
 
@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
     setupEventListeners();
     checkAuth();
+    initBannerSlider();
 });
 
 // Setup Event Listeners
@@ -79,6 +80,9 @@ function displayProducts(category) {
     } else if (category === 'discount') {
         filtered = products.filter(p => p.discount > 0);
         title.textContent = 'Товары со скидкой';
+    } else if (category === 'nurbek-choice') {
+        filtered = products.filter(p => p.nurbekChoice);
+        title.textContent = 'Выбор Нурбека';
     } else {
         filtered = products.filter(p => p.category === category);
         const categoryNames = {
@@ -98,6 +102,11 @@ function displayProducts(category) {
     }
     
     grid.innerHTML = filtered.map(product => createProductCard(product)).join('');
+    
+    // Trigger jQuery animation event
+    if (typeof $ !== 'undefined') {
+        $(document).trigger('categoryChanged');
+    }
     
     // Add event listeners to add-to-cart buttons
     const addButtons = grid.querySelectorAll('.add-to-cart-btn');
@@ -209,13 +218,6 @@ function renderImage(image, alt = '') {
 }
 
 
-// Export functions for use in other files
-window.showAlert = showAlert;
-window.products = products;
-window.goToCategory = goToCategory;
-window.scrollToCategories = scrollToCategories;
-window.backToHome = backToHome;
-
 // Navigate to category
 function goToCategory(category) {
     currentCategory = category;
@@ -266,3 +268,52 @@ function backToHome() {
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// Banner slider
+let currentBannerIndex = 0;
+let bannerInterval = null;
+
+function initBannerSlider() {
+    const img1 = document.getElementById('bannerImg1');
+    const img2 = document.getElementById('bannerImg2');
+    
+    if (!img1 || !img2) return;
+    
+    // Switch images every 4 seconds
+    bannerInterval = setInterval(() => {
+        if (currentBannerIndex === 0) {
+            img1.classList.remove('active');
+            img2.classList.add('active');
+            currentBannerIndex = 1;
+        } else {
+            img2.classList.remove('active');
+            img1.classList.add('active');
+            currentBannerIndex = 0;
+        }
+    }, 4000);
+}
+
+// Handle banner click
+function handleBannerClick() {
+    const img1 = document.getElementById('bannerImg1');
+    const img2 = document.getElementById('bannerImg2');
+    
+    if (!img1 || !img2) return;
+    
+    // Check which image is currently active
+    if (img1.classList.contains('active')) {
+        // Nurbek.png is visible, open "Выбор Нурбека"
+        goToCategory('nurbek-choice');
+    } else if (img2.classList.contains('active')) {
+        // Discount image is visible, open "Товары со скидкой"
+        goToCategory('discount');
+    }
+}
+
+// Export functions for use in other files
+window.showAlert = showAlert;
+window.products = products;
+window.goToCategory = goToCategory;
+window.scrollToCategories = scrollToCategories;
+window.backToHome = backToHome;
+window.handleBannerClick = handleBannerClick;

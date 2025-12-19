@@ -95,7 +95,7 @@ function createCartItem(item, index) {
                     <button class="quantity-btn increase-btn" data-index="${index}">+</button>
                 </div>
                 <button class="remove-btn" data-index="${index}">
-                    🗑️ Удалить
+                    Удалить
                 </button>
             </div>
         </div>

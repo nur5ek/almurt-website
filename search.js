@@ -76,7 +76,7 @@ function performSearch() {
         
         return `
             <div class="product-card">
-                <div class="product-image">${product.image}</div>
+                <div class="product-image">${renderImage(product.image, product.name)}</div>
                 <div class="product-info">
                     <h3>${product.name}</h3>
                     <div class="product-price">

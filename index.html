@@ -44,13 +44,17 @@
         <section class="welcome-banner">
             <div class="banner-content">
                 <div class="banner-text">
-                    <h1>Добро пожаловать в FoodMart!</h1>
+                    <h1>Добро пожаловать в Almurt kz!</h1>
                     <p>Свежие продукты с доставкой на дом</p>
                     <button class="banner-btn" onclick="scrollToCategories()">Начать покупки</button>
                 </div>
-                <div class="banner-image">
-                    <img src="img/Nurbek.png" alt="Nurbek's choice" class="banner-poster">
+                <div class="banner-image" id="bannerImage" onclick="handleBannerClick()">
+                    <img src="img/Nurbek.png" alt="Nurbek's choice" class="banner-poster active" id="bannerImg1">
+                    <img src="img/wintersales.jpg" alt="Winter Sales" class="banner-poster" id="bannerImg2">
                 </div>
+            </div>
+            <div class="banner-footer">
+                <p class="banner-footer-text">✨ Добавьте праздник в корзину - новогодние скидки ждут!</p>
             </div>
         </section>
 
@@ -108,6 +112,15 @@
                     </div>
                     <h3>Напитки</h3>
                     <p>На любой вкус</p>
+                    <div class="category-arrow">→</div>
+                </div>
+
+                <div class="category-card" onclick="goToCategory('nurbek-choice')">
+                    <div class="category-icon">
+                        <img src="img/nurbekchoice.jpg" alt="Выбор Нурбека" width="60" height="60">
+                    </div>
+                    <h3>Выбор Нурбека</h3>
+                    <p>Рекомендованные товары</p>
                     <div class="category-arrow">→</div>
                 </div>
             </div>
@@ -171,6 +184,13 @@
                             </span>
                             <span class="cat-text">Снеки</span>
                         </button>
+
+                        <button class="category-btn" data-category="nurbek-choice">
+                            <span class="cat-icon">
+                                <img src="img/nurbekchoice.jpg" alt="Выбор Нурбека" width="22" height="22">
+                            </span>
+                            <span class="cat-text">Выбор Нурбека</span>
+                        </button>
                     </nav>
 
                 </aside>
@@ -188,7 +208,9 @@
     </div>
 </main>
 
-<script src="script.js"></script>
-<script src="search.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    <script src="search.js"></script>
+    <script src="jquery-interactions.js"></script>
 </body>
 </html>

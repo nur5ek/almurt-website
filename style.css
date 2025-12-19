@@ -720,3 +720,175 @@ body {
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     }
 }
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    .logo h1 {
+        font-size: 20px;
+    }
+
+    .icon-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .badge {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+
+    .banner-text h1 {
+        font-size: 24px;
+    }
+
+    .banner-text p {
+        font-size: 16px;
+    }
+
+    .banner-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .product-image img {
+        width: 64px;
+        height: 64px;
+    }
+
+    .price-current {
+        font-size: 18px;
+    }
+
+    .category-btn {
+        min-width: 160px;
+        font-size: 14px;
+    }
+}
+@media (max-width: 768px) {
+    .header-content {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .search-bar {
+        order: 3;
+        width: 100%;
+    }
+
+    .welcome-banner {
+        padding: 32px 0;
+    }
+
+    .banner-content {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .banner-image {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        order: 2;
+    }
+
+    .categories {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 12px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 200px 1fr;
+    }
+
+    .banner-text h1 {
+        font-size: 36px;
+    }
+
+    .banner-text p {
+        font-size: 20px;
+    }
+
+    .categories-grid {
+        max-width: 100%;
+    }
+}
+@media (max-width: 1280px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .banner-image {
+        width: 45vw;
+    }
+}
+@media (min-width: 1440px) {
+    .products-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .banner-text h1 {
+        font-size: 52px;
+    }
+
+    .section-title {
+        font-size: 40px;
+    }
+}
+/* ===== MOBILE: категории СВЕРХУ ===== */
+@media (max-width: 768px) {
+
+    /* основной контейнер */
+    .content-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* категории ВЫШЕ каталога */
+    .sidebar {
+        order: 1;
+        margin-bottom: 16px;
+    }
+
+    /* сам каталог НИЖЕ */
+    .catalog {
+        order: 2;
+    }
+
+    /* категории вертикально */
+    .categories {
+        flex-direction: column;
+        gap: 10px;
+        overflow: visible;
+    }
+
+    .category-btn {
+        width: 100%;
+        min-width: unset;
+    }
+}
